@@ -10,6 +10,7 @@ concurrency:
 
 jobs:
   crowdin-sync:
+    if: ${{ secrets.CROWDIN_PROJECT_ID != '' && secrets.CROWDIN_PERSONAL_TOKEN != '' }}
     runs-on: ubuntu-latest
 
     permissions:
@@ -23,6 +24,8 @@ jobs:
       - name: Sync Translations from Crowdin
         uses: crowdin/github-action@v2
         with:
+          project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
+          token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           download_translations: true
           localization_branch_name: "l10n"
           commit_message: "[skip ci] chore(i18n): sync translations from crowdin"

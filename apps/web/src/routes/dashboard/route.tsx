@@ -1,5 +1,5 @@
 import { Trans } from "@lingui/react/macro";
-import { createFileRoute, Outlet, redirect, useRouter } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useRouter } from "@tanstack/react-router";
 import { SidebarProvider } from "@reactive-resume/ui/components/sidebar";
 import { createNoindexFollowMeta } from "@/libs/seo";
 import { getDashboardSidebarState, setDashboardSidebarState } from "./-components/functions";
@@ -8,8 +8,7 @@ import { DashboardSidebar } from "./-components/sidebar";
 export const Route = createFileRoute("/dashboard")({
 	component: RouteComponent,
 	beforeLoad: ({ context }) => {
-		if (!context.session) throw redirect({ to: "/dashboard", replace: true });
-		return { session: context.session };
+		if (context.session) return { session: context.session };
 	},
 	loader: () => {
 		const sidebarState = getDashboardSidebarState();

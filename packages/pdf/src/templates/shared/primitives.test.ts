@@ -2,7 +2,10 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
-const source = readFileSync(fileURLToPath(new URL("./primitives.tsx", import.meta.url)), "utf8").replaceAll("\r\n", "\n");
+const source = readFileSync(fileURLToPath(new URL("./primitives.tsx", import.meta.url)), "utf8").replaceAll(
+	"\r\n",
+	"\n",
+);
 
 describe("Link", () => {
 	it("passes the resume page underline preference to shared link styles", () => {

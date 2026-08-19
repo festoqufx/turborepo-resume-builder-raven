@@ -18,7 +18,7 @@ function RouteComponent() {
 
 			<Separator />
 
-			<ProfileSettingsPage session={session} />
+			{session ? <ProfileSettingsPage session={session} /> : null}
 		</div>
 	);
 }

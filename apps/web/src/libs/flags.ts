@@ -1,7 +1,7 @@
 import type { FeatureFlags } from "@reactive-resume/api/features/flags";
 import { client } from "./orpc/client";
 
-export const fallbackFeatureFlags: FeatureFlags = {
+const fallbackFeatureFlags: FeatureFlags = {
 	disableSignups: false,
 	disableEmailAuth: false,
 	showSponsors: false,

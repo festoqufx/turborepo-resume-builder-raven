@@ -1,6 +1,6 @@
 import type { BuilderLayout } from "./-store/sidebar";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { useBuilderResumeUpdateSubscription, useResumeCleanup, useResumeStore } from "@/features/resume/builder/draft";
@@ -13,8 +13,7 @@ import { getBuilderLayout } from "./-store/sidebar";
 export const Route = createFileRoute("/builder/$resumeId")({
 	component: RouteComponent,
 	beforeLoad: ({ context }) => {
-		if (!context.session) throw redirect({ to: "/dashboard", replace: true });
-		return { session: context.session };
+		if (context.session) return { session: context.session };
 	},
 	loader: async ({ params, context }) => {
 		const [layout, resume] = await Promise.all([

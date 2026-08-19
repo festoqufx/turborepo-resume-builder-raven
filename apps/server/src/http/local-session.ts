@@ -1,7 +1,7 @@
 import { auth } from "@reactive-resume/auth/config";
 import { env } from "@reactive-resume/env/server";
 
-export const LOCAL_USER = {
+const LOCAL_USER = {
 	name: "Local User",
 	email: "local@example.com",
 	username: "local",
