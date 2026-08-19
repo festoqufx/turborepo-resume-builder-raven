@@ -1,7 +1,4 @@
 <div align="center">
-  <a href="https://rxresu.me">
-    <img src="apps/web/public/opengraph/banner.jpg" alt="Reactive Resume" />
-  </a>
 
   <h1>Reactive Resume</h1>
 
